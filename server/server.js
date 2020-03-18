@@ -4,41 +4,24 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const colors = require('colors')
+const mongoose = require('mongoose');
  
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
  
 // parse application/json
 app.use(bodyParser.json())
+
+app.use( require('./routes/usuario') )
+
+mongoose.connect('mongodb://localhost:27017/cafe', (err, res) => {
+    if (err) throw err;
+
+    console.log("Base de datos ".yellow, "mongoDB".green, "OnLine".cyan)
+ });
  
 app.get('/', function (req, res) {
   res.json('Hello World')
-})
-
-app.get('/usuario', function (req, res) {
-    res.json('get Usuario')
- })
-
-app.post('/usuario', function (req, res) {
-    let body = req.body
-
-    if (body.nombre === undefined) {
-        res.status(400).json({
-            ok: false,
-            message: "El nombre es necesario"
-        })
-    } else {
-        res.json({ body })
-    }
-})
-
-app.put('/usuario/:id', function (req, res) {
-    let id = req.params.id
-    res.json('Tu ID: ' + id)
-})
-
-app.delete('/usuario', function (req, res) {
-    res.json('delete Usuario')
 })
  
 app.listen(process.env.PORT, () => { console.log('Escuchando puerto '.yellow, process.env.PORT.cyan)})
