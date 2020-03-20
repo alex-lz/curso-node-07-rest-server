@@ -14,14 +14,15 @@ let usuarioScheme = new Scheme({
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es obligatorio']
+        required: [true, 'La contraseña es obligatoria']
     },
     img: {
         type: String,
         required: false
     },
-    rol: {
-        default: 'USER_ROL'
+    role: {
+        type: String,
+        default: 'USER_ROLE'
     },
     estado: {
         type: Boolean,
@@ -31,6 +32,6 @@ let usuarioScheme = new Scheme({
         type: Boolean,
         default: false
     }
-})
+});
 
 module.exports = mongoose.model('Usuario', usuarioScheme)
