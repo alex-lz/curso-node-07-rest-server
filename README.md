@@ -41,9 +41,11 @@ http://localhost:3000/usuario/:id
 * Usamos
 1. *body-parser :* Para convertir todo lo que recivamos en un JSON.
 2. *mongoose :* Para hacer un modelo de usuario en mongoDB.
-3. *mongoose-unique-validator : * Para personalizar los mensajes de 
+3. *mongoose-unique-validator :* Para personalizar los mensajes de 
 error de validaciones que deben de ser unicas.
 4. *bcrypt :*  Para encriptar las contraseñas.
+5. *underscore :* Usamos el metodo pick para eliminar todos los campos 
+que no esten en el array que le pasamos como parametro.
 
 * Helpers
 1. [mongoDB Windows](https://docs.mongodb.com/guides/server/install/)

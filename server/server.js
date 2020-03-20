@@ -18,8 +18,10 @@ app.use( require('./routes/usuario') )
 let options = { 
   useCreateIndex: true, 
   useUnifiedTopology: true, 
-  useNewUrlParser: true 
+  useNewUrlParser: true,
+  useFindAndModify: false 
 }
+
 mongoose.connect('mongodb://localhost:27017/cafe', options, (err, res) => {
     if (err) throw err;
 
