@@ -14,7 +14,13 @@ app.use(bodyParser.json())
 
 app.use( require('./routes/usuario') )
 
-mongoose.connect('mongodb://localhost:27017/cafe', (err, res) => {
+// mongoose.set('useCreateIndex', true)
+let options = { 
+  useCreateIndex: true, 
+  useUnifiedTopology: true, 
+  useNewUrlParser: true 
+}
+mongoose.connect('mongodb://localhost:27017/cafe', options, (err, res) => {
     if (err) throw err;
 
     console.log("Base de datos ".yellow, "mongoDB".green, "OnLine".cyan)
