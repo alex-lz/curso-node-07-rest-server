@@ -25,7 +25,7 @@ let options = {
 mongoose.connect('mongodb://localhost:27017/cafe', options, (err, res) => {
     if (err) throw err;
 
-    console.log("Base de datos ".yellow, "mongoDB".green, "OnLine".cyan)
+    console.log("Base de datos".yellow, "mongoDB".blue, "OnLine".cyan)
  });
  
 app.get('/', function (req, res) {
