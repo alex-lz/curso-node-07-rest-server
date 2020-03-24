@@ -22,7 +22,7 @@ let options = {
   useFindAndModify: false 
 }
 
-mongoose.connect('mongodb://localhost:27017/cafe', options, (err, res) => {
+mongoose.connect(process.env.URLDB, options, (err, res) => {
     if (err) throw err;
 
     console.log("Base de datos".yellow, "mongoDB".blue, "OnLine".cyan)
